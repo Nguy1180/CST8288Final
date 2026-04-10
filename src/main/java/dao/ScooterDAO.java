@@ -11,11 +11,13 @@ import model.ScooterDTO;
  * DAO class for handling scooter operations.
  * @author tomye
  */
-public class ScooterDAO {
+public class ScooterDAO implements IScooterDao{
     /**
      * Retrieves all scooters from the database.
      * @return List of objects representing all scooters.
      */
+    
+    @Override
     public List<ScooterDTO> getAllScooters() {
         // List to score scooter records.
         List<ScooterDTO> list = new ArrayList<>();

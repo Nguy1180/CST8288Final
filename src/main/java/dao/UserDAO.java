@@ -11,12 +11,13 @@ import model.UserDTO;
  * DAO class for handling user-related operations.
  * @author tomye
  */
-public class UserDAO {
+public class UserDAO implements IUserDao{
     
     /**
      * Inserts new user into the db.
      * @param user UserDTO object containing user details.
      */
+    @Override
     public void addUser(UserDTO user) {
         // Establishes connection to the DB.
         try (Connection conn = DBConnection.getConnection()) {
