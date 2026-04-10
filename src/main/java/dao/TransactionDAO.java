@@ -11,11 +11,12 @@ import model.TransactionDTO;
  * DAO class for handling transactional operations.
  * @author tomye
  */
-public class TransactionDAO {
+public class TransactionDAO implements ITransactionDao{
     /**
      * Inserts a new transaction record into the db.
      * @param t TransactionDTO object containing transaction details.
      */
+    @Override
     public void addTransaction(TransactionDTO t) {
         // Establishes connection to the DB.
         try (Connection conn = DBConnection.getConnection()) {
