@@ -12,4 +12,7 @@ import model.UserDTO;
  */
 public interface IUserDao {
     void addUser(UserDTO user);
+    UserDTO getUserByEmail(String email);
+    void rewardMaintainer(int userId, double availableHours);
 }
+

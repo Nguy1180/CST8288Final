@@ -71,4 +71,52 @@ public class UserDAO implements IUserDao{
         // Return user object or null if not found.
         return user;
     }
+    
+    public String getUserRole(int id) {
+        String role = "";
+        // Establish connection to the db.
+        try (Connection conn = DBConnection.getConnection()) {
+            // SQL query to find user by email.
+            String sql = "SELECT * FROM users WHERE role = ?";
+            // Prepare statement and sets email parameter.
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            // If matching user is found.
+            if (rs.next()) {
+                // Creates objects and populates the fields.
+                role = rs.getString("role");
+                
+            }
+        } catch (Exception e) {
+            // Prints if error occurs.
+            e.printStackTrace();
+        }
+        // Return user object or null if not found.
+        return role;        
+    }
+    
+    public boolean isAdmin(int userId) throws Exception {
+        return "ADMIN".equalsIgnoreCase(getUserRole(userId));
+    }
+    
+    public void rewardMaintainer(int userId, double availableHours) {
+        try (Connection conn = DBConnection.getConnection()) {
+            double credit = availableHours * 0.5;
+
+    String sql = "INSERT INTO transactions (user_id, amonut, type, description) VALUES (?, ?, 'CREDIT', ?)";
+
+    PreparedStatement stmt = conn.prepareStatement(sql);
+    stmt.setInt(1, userId);
+    stmt.setDouble(2, credit);
+    stmt.setString(3, "\"Sponsor scooter availability reward\"");
+
+    stmt.executeUpdate();
+            
+        }
+        catch(Exception e) {
+            
+        }   
+    }
 }

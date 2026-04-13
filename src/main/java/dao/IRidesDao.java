@@ -4,15 +4,12 @@
  */
 package dao;
 
-import java.util.List;
-import model.StationDTO;
-
 /**
  *
  * @author the_p
  */
-public interface IStationDao {
-    List<StationDTO> getAllStations();
-    void createStation(String name, String location);
-    
+public interface IRidesDao {
+    int startRide(int userId, int scooterId, int stationId);
+    void endRide(int rideId, int endStationId, double distanceKm);
+    long getDurationMinutes(int rideId);
 }

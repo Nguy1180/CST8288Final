@@ -47,4 +47,39 @@ public class MaintenanceDAO implements IMaintenanceDao{
         // Returns list of pending maintenance records.
         return list;
     }
+    
+    @Override
+    public void reportIssue(int scooterId, String issue){
+        try (Connection conn = DBConnection.getConnection()) {
+        String sql = "INSERT INTO maintenance (scooter_id, issue, status) VALUES (?, ?, 'OPEN')";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, scooterId);
+        stmt.setString(2, issue);
+
+        stmt.executeUpdate();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void rewardMaintainer(int userId, int scootersReturned) {
+        try (Connection conn = DBConnection.getConnection()) {
+            double credit = scootersReturned * 2.0; // example rate
+
+    String sql = "INSERT INTO transactions (user_id, amonut, type, description) VALUES (?, ?, 'CREDIT', ?)";
+
+    PreparedStatement stmt = conn.prepareStatement(sql);
+    stmt.setInt(1, userId);
+    stmt.setDouble(2, credit);
+    stmt.setString(3, "Maintainer reward for returning scooters");
+
+    stmt.executeUpdate();
+            
+        }
+        catch(Exception e) {
+            
+        }   
+}
 }
