@@ -6,6 +6,7 @@ package businesslayer;
 
 import dao.IUserDao;
 import dao.UserDAO;
+import model.UserDTO;
 
 /**
  *
@@ -16,5 +17,18 @@ public class UserService {
     
     public UserService() {
         user = new UserDAO();
+    }
+    
+    public void addUser(UserDTO userdto) {
+        user.addUser(userdto);
+    }
+    
+    public UserDTO getUserByEmail(String email) {
+        
+        return user.getUserByEmail(email);
+    }
+    
+    public void rewardMaintainer(int userId, double availableHours) {
+        user.rewardMaintainer(userId, availableHours);
     }
 }

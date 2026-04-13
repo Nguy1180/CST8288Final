@@ -6,6 +6,8 @@ package businesslayer;
 
 import dao.IMaintenanceDao;
 import dao.MaintenanceDAO;
+import java.util.List;
+import model.MaintenanceDTO;
 
 /**
  *
@@ -16,5 +18,18 @@ public class MaintenanceService {
     
     public MaintenanceService() {
         maintenance = new MaintenanceDAO();
-    }    
+        
+    }
+    
+    public List<MaintenanceDTO> getPendingMaintenance() {
+        return maintenance.getPendingMaintenance();
+    }
+    
+    public void reportIssue(int scooterId, String issue) {
+        maintenance.reportIssue(scooterId, issue);
+    }
+    
+    public void rewardMaintainer(int userId, int scootersReturned) {
+        maintenance.rewardMaintainer(userId, scootersReturned);
+    }
 }

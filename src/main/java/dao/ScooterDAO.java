@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao;
+import businesslayer.TransactionService;
 import java.sql.*;
 import java.util.*;
+import model.RideDTO;
 import model.ScooterDTO;
 
 /**
@@ -12,6 +14,12 @@ import model.ScooterDTO;
  * @author tomye
  */
 public class ScooterDAO implements IScooterDao{
+    
+    private TransactionService transactionService;
+
+    private static final double COST_PER_KM = 1.5;
+    private static final double COST_PER_MINUTE = 0.2;
+
     /**
      * Retrieves all scooters from the database.
      * @return List of objects representing all scooters.
@@ -47,5 +55,9 @@ public class ScooterDAO implements IScooterDao{
         } 
         // Returns list of scooters.
         return list;
+    }
+
+    private double calculateCost(double distanceKm, long durationMinutes) {
+        return (distanceKm * COST_PER_KM) + (durationMinutes * COST_PER_MINUTE);
     }
 }

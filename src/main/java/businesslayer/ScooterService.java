@@ -6,6 +6,8 @@ package businesslayer;
 
 import dao.IScooterDao;
 import dao.ScooterDAO;
+import java.util.List;
+import model.ScooterDTO;
 
 /**
  *
@@ -17,5 +19,9 @@ public class ScooterService {
     
     public ScooterService() {
         scooter = new ScooterDAO();
+    }
+    
+    public List<ScooterDTO> getAllScooters() {
+        return scooter.getAllScooters();
     }
 }

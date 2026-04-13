@@ -14,4 +14,6 @@ import model.MaintenanceDTO;
 public interface IMaintenanceDao {
     
     List<MaintenanceDTO> getPendingMaintenance();
+    void reportIssue(int scooterId, String issue);
+    void rewardMaintainer(int userId, int scootersReturned);
 }
