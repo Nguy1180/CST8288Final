@@ -11,12 +11,13 @@ import model.StationDTO;
  * DAO class for handling all Station operations.
  * @author tomye
  */
-public class StationDAO {
+public class StationDAO  implements IStationDao {
     /**
      * Retrieves all stations from the database.
      * @return List of all Stations
      */
-    public List<StationDTO> getAllStations() {
+    @Override
+    public List<StationDTO> getAllStations(){
         // List to store station records.
         List<StationDTO> list = new ArrayList<>();
         

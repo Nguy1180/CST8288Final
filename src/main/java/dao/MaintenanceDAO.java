@@ -11,12 +11,13 @@ import model.MaintenanceDTO;
  * DAO class for handling Maintenance operations.
  * @author tomye
  */
-public class MaintenanceDAO {
+public class MaintenanceDAO implements IMaintenanceDao{
     
     /**
      * Retrieves all maintenance records with the PENDING status.
      * @return List of MaintenanceDTO objects with pending maintenance requests.
      */
+    @Override
     public List<MaintenanceDTO> getPendingMaintenance() {
         // List to store retrieved maintenance records.
         List<MaintenanceDTO> list = new ArrayList<>();
