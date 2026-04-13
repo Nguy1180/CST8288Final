@@ -64,6 +64,28 @@ CREATE TABLE maintenance (
     FOREIGN KEY (scooter_id) REFERENCES scooters(scooter_id)
 );
 
+CREATE TABLE rides (
+    ride_id INT AUTO_INCREMENT PRIMARY KEY,
+
+    user_id INT NOT NULL,
+    scooter_id INT NOT NULL,
+
+    start_station_id INT NOT NULL,
+    end_station_id INT,
+
+    start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_time TIMESTAMP NULL,
+
+    distance_km DOUBLE DEFAULT 0,
+
+    status VARCHAR(20) DEFAULT 'ACTIVE',
+
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (scooter_id) REFERENCES scooters(scooter_id),
+    FOREIGN KEY (start_station_id) REFERENCES stations(station_id),
+    FOREIGN KEY (end_station_id) REFERENCES stations(station_id)
+);
+
 -- ===============================
 -- SAMPLE DATA
 -- ===============================

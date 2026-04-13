@@ -46,4 +46,23 @@ public class StationDAO  implements IStationDao {
         // Returns list of all stations.
         return list;
     }
+    
+    @Override
+    public void createStation(String name, String location) {
+
+        try (Connection conn = DBConnection.getConnection()) { 
+            String sql = "INSERT INTO stations (name, location) VALUES (?, ?)";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setString(1, name);
+        stmt.setString(2, location);
+
+        stmt.executeUpdate();
+        }
+        catch(Exception e) {
+            e.printStackTrace();            
+        }
+        
+    }
 }

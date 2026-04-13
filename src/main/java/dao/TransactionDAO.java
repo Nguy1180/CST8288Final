@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao;
+import businesslayer.BillingService;
 import java.sql.*;
-import java.util.*;
 import model.TransactionDTO;
 
 /**
@@ -12,6 +12,9 @@ import model.TransactionDTO;
  * @author tomye
  */
 public class TransactionDAO implements ITransactionDao{
+    
+    private BillingService billingService;
+    
     /**
      * Inserts a new transaction record into the db.
      * @param t TransactionDTO object containing transaction details.
@@ -36,4 +39,38 @@ public class TransactionDAO implements ITransactionDao{
                 e.printStackTrace();
             }
         }
+    
+    @Override
+    public double getUserBalance(int userId) {
+        try (Connection conn = DBConnection.getConnection()) {
+            String sql = """
+            SELECT 
+                SUM(CASE 
+                    WHEN type = 'DEBIT' THEN amonut 
+                    WHEN type = 'CREDIT' THEN -amonut 
+                END) AS balance
+            FROM transactions
+            WHERE user_id = ?
+        """;
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, userId);
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getDouble("balance");
+        }        
+        } 
+        catch (Exception e) {
+            // Prints if error occurs.
+            e.printStackTrace();
+        }
+        return 0;
     }
+
+    @Override
+    public boolean hasUnpaidBalance(int userId){
+        return getUserBalance(userId) > 0;          
+    }    
+}

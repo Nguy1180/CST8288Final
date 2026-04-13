@@ -4,6 +4,7 @@
  */
 package dao;
 
+import model.RideDTO;
 import model.TransactionDTO;
 
 /**
@@ -12,4 +13,6 @@ import model.TransactionDTO;
  */
 public interface ITransactionDao {
     void addTransaction(TransactionDTO t);
+    double getUserBalance(int userId);
+    boolean hasUnpaidBalance(int userId);
 }

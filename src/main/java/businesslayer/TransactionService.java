@@ -6,6 +6,7 @@ package businesslayer;
 
 import dao.ITransactionDao;
 import dao.TransactionDAO;
+import model.TransactionDTO;
 
 /**
  *
@@ -16,6 +17,18 @@ public class TransactionService {
     
     public TransactionService() {
         transaction = new TransactionDAO();
+    }
+    
+    public void addTransaction(TransactionDTO t) {
+        transaction.addTransaction(t);
+    }
+    
+    public double getUserBalance(int userId) {
+        return transaction.getUserBalance(userId);
+    }
+    
+    public boolean hasUnpaidBalance(int userId) {
+        return transaction.hasUnpaidBalance(userId);
     }
     
 }

@@ -6,6 +6,8 @@ package businesslayer;
 
 import dao.IStationDao;
 import dao.StationDAO;
+import java.util.List;
+import model.StationDTO;
 
 /**
  *
@@ -15,8 +17,15 @@ public class StationService {
     private IStationDao station = null;
     
     public StationService() {
-        station = new StationDAO();
-        
+        station = new StationDAO();        
     }
     
+    public List<StationDTO> getAllStations() {
+        return station.getAllStations();
+    }    
+    
+    public void createStation(String name, String location) {
+        station.createStation(name, location);
+    }
 }
+
