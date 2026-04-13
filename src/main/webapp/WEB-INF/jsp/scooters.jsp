@@ -5,7 +5,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.ScooterDTO, model.UserDTO, java.util.List" %>
+<%@ page import="dto.ScooterDTO, dto.UserDTO, java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,11 +79,11 @@
                     <tr>
                         <td><%= s.getScooterID() %></td>
                         <td><%= s.getVehicleNumber() %></td>
-                        <td><%= s.getManufactorer() %></td>
+                        <td><%= s.getManufacturer() %></td>
                         <td><%= s.getModel() %></td>
                         <td><%= s.getColor() %></td>
                         <td><%= s.getBatteryCapacity() %> kWh</td>
-                        <td><%= s.getCurrentCharge() %>%</td>
+                        <td><%= s.getCurrentChargeLevel() %>%</td>
                         <td>
                             <span class="badge
                                 <%= "available".equalsIgnoreCase(s.getStatus()) ? "badge-available" :

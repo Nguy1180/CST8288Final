@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao;
-import businesslayer.BillingService;
+import businesslayer.service.BillingService;
 import java.sql.*;
-import model.TransactionDTO;
+import dto.TransactionDTO;
 
 /**
  * DAO class for handling transactional operations.

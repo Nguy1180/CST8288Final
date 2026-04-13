@@ -5,7 +5,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.MaintenanceDTO, model.UserDTO, java.util.List" %>
+<%@ page import="dto.MaintenanceDTO, dto.UserDTO, java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>

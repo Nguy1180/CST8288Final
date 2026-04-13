@@ -5,7 +5,7 @@
 package dao;
 import java.sql.*;
 import java.util.*;
-import model.UserDTO;
+import dto.UserDTO;
 
 /**
  * DAO class for handling user-related operations.
@@ -62,6 +62,7 @@ public class UserDAO implements IUserDao{
                 user.setUserID(rs.getInt("user_id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
             }
         } catch (Exception e) {

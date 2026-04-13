@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package businesslayer;
+package businesslayer.service;
 
 import dao.ITransactionDao;
 import dao.TransactionDAO;
-import model.TransactionDTO;
+import dto.TransactionDTO;
 
 /**
  *

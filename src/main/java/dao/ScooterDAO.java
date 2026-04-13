@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dao;
-import businesslayer.TransactionService;
+import businesslayer.service.TransactionService;
 import java.sql.*;
 import java.util.*;
-import model.RideDTO;
-import model.ScooterDTO;
+import dto.RideDTO;
+import dto.ScooterDTO;
 
 /**
  * DAO class for handling scooter operations.
@@ -43,12 +43,17 @@ public class ScooterDAO implements IScooterDao{
                 ScooterDTO s = new ScooterDTO();
                 s.setScooterID(rs.getInt("scooter_id"));
                 s.setVehicleNumber(rs.getString("vehicle_number"));
-                s.setManufactorer(rs.getString("manufactorer"));
+                s.setManufacturer(rs.getString("manufacturer")); // FIXED TYPO
                 s.setModel(rs.getString("model"));
                 s.setColor(rs.getString("color"));
-                // Adds it to the list.
+                s.setBatteryCapacity(rs.getDouble("battery_capacity"));
+                s.setCurrentChargeLevel(rs.getDouble("current_charge"));
+                s.setStatus(rs.getString("status"));
+                s.setStationID(rs.getInt("station_id"));
+                s.setSponsorID(rs.getInt("sponsor_id"));
+                // Adds to the list.
                 list.add(s);
-            }
+}
         } catch (Exception e) {
             // Prints if an error happens.
             e.printStackTrace();

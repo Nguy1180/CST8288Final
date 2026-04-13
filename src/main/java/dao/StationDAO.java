@@ -5,7 +5,7 @@
 package dao;
 import java.sql.*;
 import java.util.*;
-import model.StationDTO;
+import dto.StationDTO;
 
 /**
  * DAO class for handling all Station operations.

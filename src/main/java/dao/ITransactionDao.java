@@ -4,8 +4,8 @@
  */
 package dao;
 
-import model.RideDTO;
-import model.TransactionDTO;
+import dto.RideDTO;
+import dto.TransactionDTO;
 
 /**
  *

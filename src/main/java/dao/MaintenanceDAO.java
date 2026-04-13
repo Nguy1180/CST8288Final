@@ -5,7 +5,7 @@
 package dao;
 import java.sql.*;
 import java.util.*;
-import model.MaintenanceDTO;
+import dto.MaintenanceDTO;
 
 /**
  * DAO class for handling Maintenance operations.

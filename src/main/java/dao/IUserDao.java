@@ -4,7 +4,7 @@
  */
 package dao;
 
-import model.UserDTO;
+import dto.UserDTO;
 
 /**
  *

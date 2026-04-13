@@ -5,7 +5,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="model.UserDTO, model.ScooterDTO, java.util.List" %>
+<%@ page import="dto.UserDTO, dto.ScooterDTO, java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +105,7 @@
                                 <%= s.getStatus() %>
                             </span>
                         </td>
-                        <td><%= s.getCurrentCharge() %>%</td>
+                        <td><%= s.getCurrentChargeLevel() %>%</td>
                     </tr>
                 <% } } %>
                 </tbody>
