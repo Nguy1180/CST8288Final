@@ -164,7 +164,7 @@ body {
 
 /* Label color for auth forms */
 .auth-card .form-group label {
-    color: rgba(255,255,255,0.85);
+    /*color: rgba(255,255,255,0.85);*/
 }
 
 .form-group input[type="text"],
@@ -189,7 +189,7 @@ body {
 .auth-card .form-group select {
     background: rgba(255,255,255,0.1);
     border: 1px solid rgba(255,255,255,0.2);
-    color: #ffffff;
+    color: #000000;
 }
 
 .auth-card .form-group input::placeholder {

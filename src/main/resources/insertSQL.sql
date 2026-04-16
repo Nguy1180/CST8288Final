@@ -43,6 +43,20 @@ CREATE TABLE scooters (
 );
 
 -- ===============================
+-- GPS DATA TABLE
+-- ===============================
+
+CREATE TABLE gps_data (
+    gps_id INT AUTO_INCREMENT PRIMARY KEY,
+    scooter_id INT NOT NULL,
+    latitude DOUBLE NOT NULL,
+    longitude DOUBLE NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    in_transit BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (scooter_id) REFERENCES scooters(scooter_id)
+);
+
+-- ===============================
 -- TRANSACTIONS TABLE
 -- ===============================
 
@@ -116,3 +130,9 @@ INSERT INTO transactions (user_id, amount, type, description) VALUES
 
 INSERT INTO maintenance (scooter_id, issue, status, scheduled_date) VALUES
 (1, 'Brake Issue', 'PENDING', '2026-04-01');
+
+INSERT INTO gps_data (scooter_id, latitude, longitude, in_transit)
+VALUES 
+(1, 45.4215, -75.6972, TRUE),
+(1, 45.4220, -75.6980, TRUE),
+(2, 45.4200, -75.6900, FALSE);
